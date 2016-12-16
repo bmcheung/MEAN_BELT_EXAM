@@ -1,0 +1,21 @@
+{
+  "name": "MEAN_BELT_EXAM",
+  "authors": [
+    "Brian Cheung <bmcheung11@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-route": "^1.6.0"
+  }
+}
