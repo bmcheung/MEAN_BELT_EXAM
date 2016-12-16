@@ -1,6 +1,6 @@
 Bucket List
 <a href="#!/dashboard">Home</a>
-<a href="#!/">Logout</a>
+<a href="" ng-click="logout()">Logout</a>
 <hr>
 
 
@@ -28,7 +28,7 @@ Bucket List
 
 <span ng-repeat="todo in todos">
   <p>
-    <input type="checkbox" ng-model="todo._status" disabled>
+    <input type="checkbox" ng-model="todo._status" ng-change="updateStatus(todo._id)" data-ng-disabled="checkUser(todo._createdBy._id)">
     {{todo._createdBy.name}} | {{ todo.title }} - {{todo.description}} - {{todo.createdAt | date:'MMM dd, yyyy'}}</p>
 </span>
 
