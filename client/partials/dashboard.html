@@ -1,0 +1,36 @@
+Bucket List
+<a href="#!/dashboard">Home</a>
+<a href="#!/">Logout</a>
+<hr>
+
+
+<h3>Welcome, {{logged.name}}</h3>
+<div ng-messages="form.title.$error" role="alert">
+  <p ng-message="minlength">Title is too short, minimum 5 characters</p>
+  <p ng-message="required">Title is required</p>
+</div>
+<div ng-messages="form.description.$error" role="alert">
+  <p ng-message="minlength">Description is too short, minimum 10 characters</p>
+  <p ng-message="required">Description is required</p>
+</div>
+<form ng-submit="submit()" ng-model="newTodo" name="form">
+  <input type="text" name="title" ng-model="newTodo.title" placeholder="Enter a Title" ng-minlength="5" required>
+  <input type="text" name="description" ng-model="newTodo.description" placeholder="Enter a Description" ng-minlength="10" required>
+  <select ng-model="newTodo.tag" ng-options="user.name for user in users | filter:{ _id : '!'+logged._id }">
+    <option value="">--Tag Another User--</option>
+  </select>
+  <input type="submit" name="" value="Add to List">
+</form>
+
+<hr>
+
+<p>Before I die I want to...</p>
+
+<span ng-repeat="todo in todos">
+  <p>
+    <input type="checkbox" ng-model="todo._status" disabled>
+    {{todo._createdBy.name}} | {{ todo.title }} - {{todo.description}} - {{todo.createdAt | date:'MMM dd, yyyy'}}</p>
+</span>
+
+<p>List of other users (Click to view profile)</p>
+<p ng-repeat="user in users | filter:{ _id : '!'+logged._id }"><a  href="#!/user/{{user._id}}">{{user.name}}</a></p>

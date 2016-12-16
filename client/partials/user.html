@@ -1,0 +1,22 @@
+Bucket List
+<a href="#!/dashboard">Home</a>
+<a href="#!/">Logout</a>
+<hr>
+
+<p>{{user.name}}'s Bucket List</p>
+
+
+<p>
+  Done
+</p>
+
+<ul>
+  <li ng-repeat="todo in user.bucketlist | filter: { _status: true}"><input type="checkbox" ng-model="todo._status" ng-change="updateStatus($index)" data-ng-disabled="checkUser($index)">{{todo._createdBy.name}} | {{todo.title}} - {{todo.description}}</li>
+</ul>
+
+<p>
+  Pending
+</p>
+<ul>
+  <li ng-repeat="todo in user.bucketlist | filter: { _status: false}"><input type="checkbox" ng-model="todo._status" ng-change="updateStatus($index)" data-ng-disabled="checkUser($index)">{{todo._createdBy.name}} | {{todo.title}} - {{todo.description}}</li>
+</ul>
