@@ -15,6 +15,7 @@ console.log("dashboardController");
       $scope.users = returnedData;
     });
   };
+
   index();
 
   $scope.submit = function(){
@@ -22,8 +23,8 @@ console.log("dashboardController");
       // console.log(this.newTodo);
       todoFactory.create(this.newTodo, function(returnedData){
         $scope.newTodo = {}
+        index();
       })
-      index();
   }
   $scope.logout = function(){
     delete $rootScope.user
